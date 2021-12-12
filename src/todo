@@ -1,0 +1,22 @@
+-- Memory Game compontents:
+<header></FOOTER>
+
+
+**Score Container
+    *Score
+    *best Score
+<MAIN>
+*****Cards Container
+    **** Cards
+        *** Photo(api)
+        *** name (api)
+        *** id
+        *** boolean clicked status
+        *** clicklistener
+            **checkboolean()
+                *if true( restart(Positionchange) )
+                *if !true(positionChange( https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array ), score+1, boolean =true)
+            
+</MAIN>
+
+<FOOTER></FOOTER>
