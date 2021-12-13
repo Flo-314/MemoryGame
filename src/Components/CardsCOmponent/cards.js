@@ -1,17 +1,16 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Card from "./card";
 
-function Cards(props) {
-    return ( <div id="cards-container">
-        {props.pokemonList.map((pokemon) => {
-            return(
-            <Card  
-            pokemonName={pokemon.forms[0].name}
-            pokemonImg={pokemon.sprites.other.home.front_default}/>)
+const Cards = (props) => {
+  return (
+    <div id="cards-container">
+        <button onClick={() => console.log(props.pokemonList)}> asdasd </button>
+              {props.pokemonList !== undefined && props.pokemonList.map((pokemon) => {
+        return <Card />;
+      })}   
+    </div>
+  );
+};
 
-        })}
-
-    </div> );
-}
-
-export default Cards;<div></div>
+export default Cards;
+<div></div>;
