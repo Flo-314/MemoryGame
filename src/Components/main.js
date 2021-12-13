@@ -6,7 +6,6 @@ const Main = () => {
 
 
   const [pokemonList, setPokemonList] = useState([]);
-  const [clickedState, setClickedState] = useState([])
   const fetchApi = async () => {
     const randomNumber = () => Math.floor(Math.random() * (800 - 1) ) + 1;
     const apiLink = "https://pokeapi.co/api/v2/pokemon?limit=12&offset=" + randomNumber();
@@ -17,11 +16,15 @@ const Main = () => {
       pokemon = await pokemon.json();
       pokemon = {
         "image": pokemon.sprites.other.dream_world.front_default,
-        "name": pokemon.name
+        "name": pokemon.name,
+        "clicked": false,
+        "id": randomNumber()
       }
       setPokemonList((pokemonList) => [...pokemonList, pokemon]);
     });
   };
+
+
   useEffect(() => {
     fetchApi();
   }, []);
