@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    word-break: break-word;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cards-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5%;
+}
+
+.card{
+margin: 25px;
+
+}
+
+img{
+    width: 200px;
+    height: 350px;
+}
