@@ -25,22 +25,44 @@ const Main = () => {
     fetchApi();
   }, []);
 
-
-  const togglePokemonBoolean = (pokemonName) =>{
-    const arrayIndex =  pokemonList.findIndex((pokemon) => {return pokemon.name === pokemonName })
-    const newPokemonList = [...pokemonList]
-
-    console.log(pokemonList[arrayIndex].clicked)
-    if(newPokemonList[arrayIndex].clicked === false){
-      newPokemonList[arrayIndex].clicked = true
-      setPokemonList(newPokemonList)
-
+  const reOrderPokemonList = () => {
+    let ShufledPokemonList = [...pokemonList];
+    for (let i = ShufledPokemonList.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+      const temporalPokemon = ShufledPokemonList[i];
+      ShufledPokemonList[i] = ShufledPokemonList[randomIndex];
+      ShufledPokemonList[randomIndex] = temporalPokemon;
     }
-    else{
-      //restart()
-    }  
-  }
-  return <main>{<Cards pokemonList={pokemonList} togglePokemonBoolean={togglePokemonBoolean} />}</main>;
+    setPokemonList(ShufledPokemonList);
+  };
+  const restartPokemonBoolean = () => {
+    //  foreach pokemon click.state.new
+  };
+  const restartGame = () => {
+    reOrderPokemonList();
+    restartPokemonBoolean();
+    // if highscore < score => highscore = score
+    // score = 0
+  };
+  const clickHandler = (pokemonName) => {
+    const arrayIndex = pokemonList.findIndex((pokemon) => {
+      return pokemon.name === pokemonName;
+    });
+    const newPokemonList = [...pokemonList];
+    if (newPokemonList[arrayIndex].clicked === false) {
+      newPokemonList[arrayIndex].clicked = true;
+      setPokemonList(newPokemonList);
+      reOrderPokemonList();
+    } else {
+      restartGame();
+    }
+  };
+
+  return (
+    <main>
+      {<Cards pokemonList={pokemonList} clickHandler={clickHandler} />}
+    </main>
+  );
 };
 
 export default Main;

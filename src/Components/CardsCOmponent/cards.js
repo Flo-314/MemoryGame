@@ -7,7 +7,7 @@ const Cards = (props) => {
     <div id="cards-container">
       {props.pokemonList !== undefined &&
         props.pokemonList.map((pokemon) => {
-          return <Card key={uniqid()} pokemon={pokemon}  togglePokemonBoolean={props.togglePokemonBoolean}  />;
+          return <Card key={uniqid()} pokemon={pokemon}  clickHandler={props.clickHandler}  />;
         })}
     </div>
   );
