@@ -71,6 +71,13 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 background-color: #F7F7F7;
+transition: 0.1s all;
+}
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 2px 2px 2px;
+    transition: 0.1s all;
+
 }
 .card h4{
     font-size: 35px;
@@ -90,4 +97,18 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer img{
+    width: 50px;
+    height: 50px;
+    transition: 0.1s all;
+    margin: 25px;
+}
+
+footer img:hover{
+
+    transform: scale(1.2);
+    transform: rotate(360);
+    transition: 0.1s all; 
 }
