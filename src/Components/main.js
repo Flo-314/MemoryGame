@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Cards from "./CardsCOmponent/cards";
+import Score from "./scoreCOmponents/score"
+
 const Main = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const fetchApi = async () => {
@@ -36,7 +38,12 @@ const Main = () => {
     setPokemonList(ShufledPokemonList);
   };
   const restartPokemonBoolean = () => {
-    //  foreach pokemon click.state.new
+        let falsyPokemonList = [...pokemonList];
+        falsyPokemonList.forEach(pokemon => { 
+          pokemon.clicked = false
+        })
+        setPokemonList(falsyPokemonList);
+
   };
   const restartGame = () => {
     reOrderPokemonList();
@@ -50,9 +57,11 @@ const Main = () => {
     });
     const newPokemonList = [...pokemonList];
     if (newPokemonList[arrayIndex].clicked === false) {
+     
       newPokemonList[arrayIndex].clicked = true;
       setPokemonList(newPokemonList);
       reOrderPokemonList();
+      //score +=1
     } else {
       restartGame();
     }
