@@ -10,7 +10,6 @@ const Main = () => {
     score: 0,
   });
 
-
   const fetchApi = async () => {
     const randomNumber = () => Math.floor(Math.random() * (800 - 1)) + 1;
     const apiLink =
@@ -31,22 +30,23 @@ const Main = () => {
   };
   useEffect(() => {
     fetchApi();
+    reOrderPokemonList()
   }, []);
 
-const resetScore = () => {
-  const newScore = score
-  if(newScore.score > newScore.maxScore){
-    newScore.maxScore = newScore.score
-  }
-  newScore.score = 0
-  setScore(newScore)
-}
-const sumScore = () => {
-  setScore((prevState) => ({
-    ...prevState,
-    score: prevState.score+1,
-  }));
-}
+  const resetScore = () => {
+    const newScore = score;
+    if (newScore.score > newScore.maxScore) {
+      newScore.maxScore = newScore.score;
+    }
+    newScore.score = 0;
+    setScore(newScore);
+  };
+  const sumScore = () => {
+    setScore((prevState) => ({
+      ...prevState,
+      score: prevState.score + 1,
+    }));
+  };
 
   const reOrderPokemonList = () => {
     let ShufledPokemonList = [...pokemonList];
@@ -68,7 +68,7 @@ const sumScore = () => {
   const restartGame = () => {
     reOrderPokemonList();
     restartPokemonBoolean();
-    resetScore()
+    resetScore();
   };
   const clickHandler = (pokemonName) => {
     const arrayIndex = pokemonList.findIndex((pokemon) => {
@@ -79,7 +79,7 @@ const sumScore = () => {
       newPokemonList[arrayIndex].clicked = true;
       setPokemonList(newPokemonList);
       reOrderPokemonList();
-      sumScore()
+      sumScore();
     } else {
       restartGame();
     }
