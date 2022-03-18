@@ -1,5 +1,4 @@
-Memory card game to practice react
+A memory card game using Pokemon Characters. It is my first React Project
+Made With: React, CSS, Pokemon API
 
-USing: REACT
-CSS VANILLA
-POkemon api
+![.](https://github.com/Flo-314/MemoryGame/blob/main/githubphoto.png)
